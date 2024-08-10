@@ -307,7 +307,7 @@ func (h apiHandler) handleReactToMessage(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
-	count, err := h.q.ReactToMessage(r.Context(), id)
+	count, err := h.q.ReactMessage(r.Context(), id)
 	if err != nil {
 		http.Error(w, "something went wrong", http.StatusInternalServerError)
 		slog.Error("failed to react to message", "error", err)

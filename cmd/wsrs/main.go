@@ -10,6 +10,7 @@ import (
 
 	"github.com/Marcos-Boas/semana-tech-go-react-server/internal/api"
 	"github.com/Marcos-Boas/semana-tech-go-react-server/internal/store/pgstore"
+
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
 )
@@ -33,7 +34,6 @@ func main() {
 		panic(err)
 	}
 
-	//executa essa função antes de finalizar a função atual
 	defer pool.Close()
 
 	if err := pool.Ping(ctx); err != nil {
@@ -53,5 +53,4 @@ func main() {
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
-
 }

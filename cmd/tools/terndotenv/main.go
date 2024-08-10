@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os/exec"
 
 	"github.com/joho/godotenv"
@@ -20,15 +19,7 @@ func main() {
 		"--config",
 		"./internal/store/pgstore/migrations/tern.conf",
 	)
-
-	/*if err := cmd.Run(); err != nil {
-		panic(err)
-	}*/
-
-	output, err := cmd.CombinedOutput()
-	if err != nil {
-		fmt.Println(string(output))
+	if err := cmd.Run(); err != nil {
 		panic(err)
 	}
-
 }
